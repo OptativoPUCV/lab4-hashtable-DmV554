@@ -43,7 +43,7 @@ int is_equal(void *key1, void *key2) {
 void insertMap(HashMap *map, char *key, void *value) {
   int casilla = hash(key, map->capacity);
   
-  Pair* nuevoPair = malloc(sizeof(Pair);
+  Pair* nuevoPair = malloc(sizeof(Pair));
   strcpy(nuevoPair->key, key);
   nuevoPair->value = value;
 
