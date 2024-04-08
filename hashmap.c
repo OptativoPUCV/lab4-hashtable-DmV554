@@ -49,14 +49,15 @@ void insertMap(HashMap *map, char *key, void *value) {
 
   if(map->buckets[casilla] == NULL) {
      map->buckets[casilla] = nuevoPair;   
-    return;
-  } 
-
-  for(int i=0; i<map->capacity; i++) {
-    if(map->buckets[i] == NULL || map->buckets[i]->key == NULL) {
-      map->buckets[i] = nuevoPair;
+  } else {
+    for(int i=0; i<map->capacity; i++) {
+      if(map->buckets[i] == NULL || map->buckets[i]->key == NULL) {
+        map->buckets[i] = nuevoPair;
+      }
     }
   }
+
+  map->size += 1;
   
 }
 
