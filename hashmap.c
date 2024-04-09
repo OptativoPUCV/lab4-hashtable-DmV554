@@ -46,6 +46,10 @@ void insertMap(HashMap *map, char *key, void *value) {
     strcpy(nuevoPair->key, key);
     nuevoPair->value = value;
 
+  if(casilla) {
+    printf("xd");
+  }
+
 }
 
 void enlarge(HashMap *map) {
