@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 typedef struct HashMap HashMap;
 int enlarge_called = 0;
@@ -42,29 +41,16 @@ int is_equal(void *key1, void *key2) {
 
 void insertMap(HashMap *map, char *key, void *value) {
   long casilla = hash(key, map->capacity);
-  
-  if(map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
-    Pair* nuevoPair = malloc(sizeof(Pair));
+
+  if (map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
+    Pair *nuevoPair = malloc(sizeof(Pair));
     strcpy(nuevoPair->key, key);
     nuevoPair->value = value;
 
     map->buckets[casilla] = nuevoPair;
-  } else {
-    for(int i=casilla; i<map->capacity; i++) {
-      if(map->buckets[i] == NULL || map->buckets[i]->key == NULL) {
-        Pair* nuevoPair = malloc(sizeof(Pair));
-        strcpy(nuevoPair->key, key);
-        nuevoPair->value = value;
-
-        map->buckets[i] = nuevoPair;
-      }
-    }
   }
 
-  
-  
   map->size += 1;
-  
 }
 
 void enlarge(HashMap *map) {
