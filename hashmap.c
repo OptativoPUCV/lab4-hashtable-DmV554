@@ -40,9 +40,9 @@ int is_equal(void *key1, void *key2) {
 }
 
 void insertMap(HashMap *map, char *key, void *value) {
-  long casilla = hash(key, map->capacity);
+  /*long casilla = hash(key, map->capacity);
 
-    Pair *nuevoPair = createPair(key, value);
+  Pair *nuevoPair = createPair(key, value);
 
   if(map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
     map->buckets[casilla] = nuevoPair;
@@ -53,12 +53,29 @@ void insertMap(HashMap *map, char *key, void *value) {
         return; 
       }
       casilla = (casilla + 1) % map->capacity;
-    }
+    }  
 
     map->buckets[casilla] = nuevoPair;
   }
 
-  map->size += 1;
+  map->size += 1;*/
+
+
+  long indice = hash(key, map->capacity);
+
+  while (map->buckets[indice] != NULL && map->buckets[indice]->key != NULL) {
+      if (strcmp(map->buckets[indice]->key, key) == 0) {
+          map->buckets[indice]->value = value;
+          return;
+      }
+      indice = (indice + 1) % map->capacity; 
+  }
+
+    Pair *newPair = createPair(key, value); 
+    map->buckets[indice] = newPair;
+
+    map->size += 1;
+
 
 }
 
