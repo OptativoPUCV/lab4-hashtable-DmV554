@@ -46,8 +46,9 @@ void insertMap(HashMap *map, char *key, void *value) {
 
   if(map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
     map->buckets[casilla] = nuevoPair;
-    
   }
+
+  map->size += 1;
 
 }
 
