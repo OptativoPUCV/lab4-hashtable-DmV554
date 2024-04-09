@@ -100,6 +100,7 @@ Pair *searchMap(HashMap *map, char *key) {
   long casilla = hash(key, map->capacity);
 
   while (map->buckets[casilla] != NULL && map->buckets[casilla]->key != NULL) {
+    map->current = casilla;
     if (strcmp(map->buckets[casilla]->key, key) == 0) {
       Pair* pairRetornado = map->buckets[casilla];
       return pairRetornado;
