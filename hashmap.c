@@ -94,7 +94,14 @@ HashMap *createMap(long capacity) {
   return mapa;
 }
 
-void eraseMap(HashMap *map, char *key) {}
+void eraseMap(HashMap *map, char *key) {
+  Pair*datoABorrar = searchMap(map, key);
+
+  if(datoABorrar != NULL) {
+    datoABorrar->key = NULL;
+    map->size--;
+  }
+}
 
 Pair *searchMap(HashMap *map, char *key) { 
   long casilla = hash(key, map->capacity);
