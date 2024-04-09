@@ -60,19 +60,19 @@ void insertMap(HashMap *map, char *key, void *value) {
 
   map->size += 1;*/
 
-  long indice = hash(key, map->capacity);
+  long casilla = hash(key, map->capacity);
 
-  while (map->buckets[indice] != NULL && map->buckets[indice]->key != NULL) {
-    if (strcmp(map->buckets[indice]->key, key) == 0) {
-      map->buckets[indice]->value = value;
+  while (map->buckets[casilla] != NULL && map->buckets[casilla]->key != NULL) {
+    if (strcmp(map->buckets[casilla]->key, key) == 0) {
+      map->buckets[casilla]->value = value;
       return;
     }
-    indice = (indice + 1) % map->capacity;
+    casilla = (casilla + 1) % map->capacity;
   }
 
-  // if (map->buckets[indice] == NULL || map->buckets[indice]->key == NULL) {
+  // if (map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
   Pair *newPair = createPair(key, value);
-  map->buckets[indice] = newPair;
+  map->buckets[casilla] = newPair;
 
   map->size += 1;
   //}
@@ -96,7 +96,19 @@ HashMap *createMap(long capacity) {
 
 void eraseMap(HashMap *map, char *key) {}
 
-Pair *searchMap(HashMap *map, char *key) { return NULL; }
+Pair *searchMap(HashMap *map, char *key) { 
+  long casilla = hash(key, map->capacity);
+
+  while (map->buckets[casilla] != NULL && map->buckets[casilla]->key != NULL) {
+    if (strcmp(map->buckets[casilla]->key, key) == 0) {
+      Pair* pairRetornado = map->buckets[casilla];
+      return pairRetornado;
+    }
+    casilla = (casilla + 1) % map->capacity;
+  }
+  
+  return NULL; 
+}
 
 Pair *firstMap(HashMap *map) { return NULL; }
 
