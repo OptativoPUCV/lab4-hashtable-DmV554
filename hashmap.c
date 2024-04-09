@@ -50,7 +50,6 @@ void insertMap(HashMap *map, char *key, void *value) {
     map->buckets[casilla] = nuevoPair;
   }
 
-  map->size += 1;
 }
 
 void enlarge(HashMap *map) {
