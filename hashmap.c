@@ -43,6 +43,7 @@ void insertMap(HashMap *map, char *key, void *value) {
   long casilla = hash(key, map->capacity);
 
     Pair *nuevoPair = malloc(sizeof(Pair));
+    nuevoPair->key = malloc(sizeof(char));
     strcpy(nuevoPair->key, key);
     nuevoPair->value = value;
 

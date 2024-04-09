@@ -117,3 +117,8 @@ hashmap.c:46:5: error: ‘*nuevoPair.key’ is used uninitialized [-Werror=unini
 cc1: all warnings being treated as errors
 Compilation failed
 1dd76de
+Tue 09 Apr 2024 02:07:03 AM UTC: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+ tests:  0|0
+e1c6b8e
