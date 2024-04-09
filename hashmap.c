@@ -43,11 +43,12 @@ void insertMap(HashMap *map, char *key, void *value) {
   long casilla = hash(key, map->capacity);
 
     Pair *nuevoPair = malloc(sizeof(Pair));
-    strcpy(nuevoPair->key, key);
+    nuevoPair->key = "c";
     nuevoPair->value = value;
 
   if(casilla) {
     printf("xd");
+    printf("%s", nuevoPair->key);
   }
 
 }
