@@ -42,13 +42,11 @@ int is_equal(void *key1, void *key2) {
 void insertMap(HashMap *map, char *key, void *value) {
   long casilla = hash(key, map->capacity);
 
-    Pair *nuevoPair = malloc(sizeof(Pair));
-    nuevoPair->key = "c";
-    nuevoPair->value = value;
+    Pair *nuevoPair = createPair(key, value);
 
-  if(casilla) {
-    printf("xd");
-    printf("%s", nuevoPair->key);
+  if(map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
+    map->buckets[casilla] = nuevoPair;
+    
   }
 
 }
