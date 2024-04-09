@@ -46,6 +46,16 @@ void insertMap(HashMap *map, char *key, void *value) {
 
   if(map->buckets[casilla] == NULL || map->buckets[casilla]->key == NULL) {
     map->buckets[casilla] = nuevoPair;
+  } else {
+    while (map->buckets[casilla] != NULL && map->buckets[casilla]->key != NULL) {
+      if (strcmp(map->buckets[casilla]->key, key) == 0) {
+        map->buckets[casilla]->value = value;
+        return; 
+      }
+      casilla = (casilla + 1) % map->capacity;
+    }
+
+    map->buckets[casilla] = nuevoPair;
   }
 
   map->size += 1;
