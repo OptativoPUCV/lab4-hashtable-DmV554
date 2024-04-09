@@ -92,3 +92,17 @@ Tue 09 Apr 2024 02:02:55 AM UTC:
  1 file changed, 1 deletion(-)
  tests:  0|0
 d180805
+Tue 09 Apr 2024 02:05:29 AM UTC: 
+ hashmap.c | 4 ----
+ 1 file changed, 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:43:8: error: unused variable ‘casilla’ [-Werror=unused-variable]
+   43 |   long casilla = hash(key, map->capacity);
+      |        ^~~~~~~
+hashmap.c:46:5: error: ‘*nuevoPair.key’ is used uninitialized [-Werror=uninitialized]
+   46 |     strcpy(nuevoPair->key, key);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+74f5c6a
