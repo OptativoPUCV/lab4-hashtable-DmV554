@@ -80,6 +80,28 @@ void insertMap(HashMap *map, char *key, void *value) {
 
 void enlarge(HashMap *map) {
   enlarge_called = 1; // no borrar (testing purposes)
+
+  Pair** viejoBuckets = map->buckets;
+
+  map->capacity *= 2;
+
+  Pair**nuevoBuckets = calloc(map->capacity, sizeof(Pair*));
+  map->buckets = nuevoBuckets;
+
+  map->size = 0;
+
+  for(int i=0; i<map->capacity; i++) {
+       Pair* elemTabla = viejoBuckets[i];
+        if(elemTabla != NULL){
+            insertMap(map, elemTabla->key, elemTabla->value);
+        }
+    }
+
+  free(viejoBuckets);
+
+  
+
+  
 }
 
 HashMap *createMap(long capacity) {
