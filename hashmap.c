@@ -84,9 +84,7 @@ void enlarge(HashMap *map) {
   Pair** viejoBuckets = map->buckets;
 
   map->capacity *= 2;
-
-  Pair**nuevoBuckets = calloc(map->capacity, sizeof(Pair*));
-  map->buckets = nuevoBuckets;
+  map->buckets = calloc(map->capacity, sizeof(Pair*));
 
   map->size = 0;
 
@@ -99,9 +97,6 @@ void enlarge(HashMap *map) {
 
   free(viejoBuckets);
 
-  
-
-  
 }
 
 HashMap *createMap(long capacity) {
