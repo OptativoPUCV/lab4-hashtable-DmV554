@@ -118,6 +118,8 @@ Pair *searchMap(HashMap *map, char *key) {
   return NULL; 
 }
 
-Pair *firstMap(HashMap *map) { return NULL; }
+Pair *firstMap(HashMap *map) { 
+  return NULL; 
+}
 
 Pair *nextMap(HashMap *map) { return NULL; }
