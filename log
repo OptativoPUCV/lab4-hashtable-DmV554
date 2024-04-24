@@ -262,3 +262,8 @@ hashmap.c:85:7: error: unused variable ‘capacidadVieja’ [-Werror=unused-vari
 cc1: all warnings being treated as errors
 Compilation failed
 7d7ca4e
+Wed 24 Apr 2024 06:48:26 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+b100079
