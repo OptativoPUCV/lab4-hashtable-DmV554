@@ -85,16 +85,18 @@ void enlarge(HashMap *map) {
   int capacidadVieja = map->capacity;
 
   map->capacity *= 2;
-  map->buckets = calloc(map->capacity, sizeof(Pair*));
+ // map->buckets = calloc(map->capacity, sizeof(Pair*));
+    map->buckets = realloc(map->buckets, map->capacity);
 
-  map->size = 0;
 
-  for(int i=0; i< capacidadVieja; i++) {
+  /*map->size = 0;
+
+  for(int i=0; i < capacidadVieja; i++) {
        Pair* elemTabla = viejoBuckets[i];
         if(elemTabla != NULL){
             insertMap(map, elemTabla->key, elemTabla->value);
         }
-    }
+    }*/
 
   free(viejoBuckets);
 

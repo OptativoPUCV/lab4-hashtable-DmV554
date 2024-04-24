@@ -251,3 +251,14 @@ Thu 11 Apr 2024 03:45:32 PM UTC:
  tests:  17|0
 total_score: 70/70
 fae3f58
+Wed 24 Apr 2024 06:48:16 PM UTC: 
+ hashmap.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:85:7: error: unused variable ‘capacidadVieja’ [-Werror=unused-variable]
+   85 |   int capacidadVieja = map->capacity;
+      |       ^~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7d7ca4e
